@@ -230,8 +230,8 @@ fun LoginScreen(viewModel: CampViewModel) {
     val isLoading by viewModel.isLoading.collectAsStateWithLifecycle()
     var isRegisterTab by remember { mutableStateOf(true) } // default to new parent registration
 
-    var parentName by remember { mutableStateOf("") }
-    var childName by remember { mutableStateOf("") }
+    var parentName by remember { mutableStateOf(viewModel.getCachedParentName()) }
+    var childName by remember { mutableStateOf(viewModel.getCachedChildName()) }
 
     var showAdminDialog by remember { mutableStateOf(false) }
     var adminPin by remember { mutableStateOf("") }

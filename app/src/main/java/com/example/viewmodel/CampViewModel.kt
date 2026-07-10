@@ -40,8 +40,8 @@ class CampViewModel(application: Application) : AndroidViewModel(application) {
     private val _allUsers = MutableStateFlow<List<CampUser>>(emptyList())
     val allUsers: StateFlow<List<CampUser>> = _allUsers.asStateFlow()
 
-    // Admin login state (session-based)
-    private val _isAdmin = MutableStateFlow(false)
+    // Admin login state (session-based, cached in SharedPreferences)
+    private val _isAdmin = MutableStateFlow(prefs.getBoolean("is_admin", false))
     val isAdmin: StateFlow<Boolean> = _isAdmin.asStateFlow()
 
     // Operation status messages/errors
@@ -235,6 +235,7 @@ class CampViewModel(application: Application) : AndroidViewModel(application) {
     fun loginAdmin(pin: String, onSuccess: () -> Unit) {
         if (pin == "2026" || pin == "1234") { // Simple standard PIN codes for easy remembering
             _isAdmin.value = true
+            prefs.edit().putBoolean("is_admin", true).apply()
             onSuccess()
         } else {
             _statusMessage.value = "رمز المرور خاطئ! يرجى المحاولة مجدداً"
@@ -243,7 +244,11 @@ class CampViewModel(application: Application) : AndroidViewModel(application) {
 
     fun logoutAdmin() {
         _isAdmin.value = false
+        prefs.edit().remove("is_admin").apply()
     }
+
+    fun getCachedParentName(): String = prefs.getString("parent_name", "") ?: ""
+    fun getCachedChildName(): String = prefs.getString("child_name", "") ?: ""
 
     fun logout() {
         clearLocalSession()
