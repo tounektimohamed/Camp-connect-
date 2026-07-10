@@ -1,0 +1,6 @@
+{
+  "name": "Camp Connect",
+  "description": "تطبيق متكامل لمتابعة المخيم الصيفي والتواصل مع الأولياء: تصفح ألبومات صور قوقل، والبرنامج اليومي والغذائي، وأهم الأنشطة، وتلقي إشعارات مخصصة.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

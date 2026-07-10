@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "271642704562",
+    "project_id": "camp-connect-1e3fb",
+    "storage_bucket": "camp-connect-1e3fb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271642704562:android:46d994fed857999be727ab",
+        "android_client_info": {
+          "package_name": "com.camp.sayfi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9vCKy0DxNNR0Spv8O_vvb5TBzX-di9EQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
